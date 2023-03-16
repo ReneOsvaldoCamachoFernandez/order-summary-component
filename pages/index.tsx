@@ -2,7 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import HeroIllust from "public/images/illustration-hero.svg";
 import MusicIco from "public/images/icon-music.svg";
+import patternMov from "public/images/pattern-background-mobile.svg";
+import patternDesk from "public/images/pattern-background-desktop.svg";
+import { useBreakpoint } from "../hooks/useBreakpoint";
+
 export default function Home() {
+  const breakpoint = useBreakpoint();
+  const pattImage = breakpoint.xl === true ? patternDesk : patternMov;
+
   return (
     <>
       <Head>
@@ -11,12 +18,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon-32x32.png" />
       </Head>
-      <main className="bg-[#E0E8FF] font-medium text-[#7280A7] h-full w-full p-5 flex justify-center items-center">
-        <div className="bg-white flex flex-col items-center gap-8 rounded-2xl">
+      <main className="bg-[#E0E8FF] font-medium text-[#7280A7] h-full w-full p-5 flex justify-center items-center relative">
+        <Image
+          src={pattImage}
+          alt="backPattern"
+          className=" absolute z-0 top-0 w-full"
+        ></Image>
+        <div className="bg-white  z-10 flex flex-col items-center gap-8 rounded-2xl xl:max-w-[400px] ">
           <Image
             src={HeroIllust}
             alt="hero illust"
-            className="rounded-t-2xl"
+            className="rounded-t-2xl w-full"
           ></Image>
           <div className="flex flex-col items-center gap-6 px-6 mb-6">
             <h1 className="text-[#1F2F56] text-2xl font-black">
