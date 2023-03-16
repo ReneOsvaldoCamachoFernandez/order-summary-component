@@ -24,7 +24,7 @@ export default function Home() {
           alt="backPattern"
           className=" absolute z-0 top-0 w-full"
         ></Image>
-        <div className="bg-white  z-10 flex flex-col items-center gap-8 rounded-2xl  ">
+        <div className="bg-white  z-10 flex flex-col items-center gap-8 rounded-2xl xl:max-w-[465px] ">
           <Image
             src={HeroIllust}
             alt="hero illust"
